@@ -1,0 +1,22 @@
+<div class="submenu">
+
+    <a href="{%url 'menu'%}" class="menu__main">Main</a>
+    {%if menu.parent%}
+        <div class="menu__parent">
+            {% include 'parent.html' with menu=menu.parent %}
+        </div>
+    {%endif%}
+
+    <h1 class="menu__title">{{menu.title}}</h1>
+
+    {%if menu.children%}
+        <div class="menu__children">
+            {%for child in menu.children.all%}
+                <a class="menu__item" href="{%url 'submenu' child.title%}">{{child.title}}</a>
+            {%endfor%}
+
+        </div>
+
+    {%endif%}
+
+</div>

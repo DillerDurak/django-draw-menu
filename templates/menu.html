@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%block title%}All menu{%endblock title%}
+
+{%block content%}
+<div class="menu">
+    
+    {%for menu in menus%}
+        <a class="menu__item" href="{%url 'submenu' menu.title%}">{{menu.title}}</a>
+    {%endfor%}
+    
+</div>
+{%endblock content%}

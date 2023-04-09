@@ -1,0 +1,8 @@
+{%for t in menu.children.all%}
+    <li><a class="menu__item" href="{%url 'submenu' t.title%}">{{forloop.counter}}-{{t.title}}</a></li>
+    <ul>
+        {%if t.children%}
+            {%include 'children.html' with menu=t%}
+        {%endif%}
+    </ul>
+{%endfor%}

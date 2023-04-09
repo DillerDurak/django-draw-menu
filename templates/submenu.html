@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%block title%}{{menu.title}}{%endblock title%}
+
+{%block content%}
+    <div class="submenu">
+
+        {%if menu.parent%}
+            <div class="menu__parent">
+                {%include 'parent.html' with menu=menu.parent%}
+            </div>
+        {%endif%}
+
+        <h1 class="menu__title">{{menu.title}}</h1>
+
+        {%if menu.children%}
+            <div class="menu__children">
+                {%for child in menu.children.all%}
+                    <a class="menu__item" href="{%url 'submenu' child.title%}">{{child.title}}</a>
+                {%endfor%}
+            </div>
+        {%endif%}
+        
+    </div>
+    
+{%endblock content%}

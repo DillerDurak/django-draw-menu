@@ -1,0 +1,4 @@
+{%if menu.parent%}
+    {%include 'parent.html' with menu=menu.parent%}
+{%endif%}
+<a href="{%url 'submenu' menu.title%}">{{menu.title}}</a>
